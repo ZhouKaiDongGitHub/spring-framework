@@ -1,6 +1,7 @@
 package com.luban.test;
 
 import com.luban.AppConfig;
+import com.luban.aop.demo.AopService;
 import com.luban.dao.OrderDao;
 import com.luban.service.OrderService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,5 +14,7 @@ public class Test {
         context.refresh();
         //context.getBean(OrderService.class).query("A");
         //context.getBean(OrderService.class).query("B");
+        AopService aopService = (AopService) context.getBean("targetPrograme");
+        aopService.testAop();
     }
 }
